@@ -48,7 +48,7 @@
                         <div class="navbar-nav ms-auto p-4 p-lg-0">
                             <a href="job-list.html" class="nav-item nav-link ">Jobs</a>
                             <a href="about.html" class="nav-item nav-link">About US</a>
-                            <a href="blogs.html" class="nav-item nav-link">Testimonial</a>
+                            <a href="testimonial.html" class="nav-item nav-link">Testimonial</a>
                             <a href="contact.html" class="nav-item nav-link">Contact US</a>
                         </div>
                     </div>
@@ -121,42 +121,37 @@
                                 <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, eum. Nulla
                                     nesciunt, sed nihil in iste iusto libero dolores quaerat, tenetur rerum, cumque
                                     eveniet enim quod ullam. Corporis, reiciendis similique!</p>
-                                <form>
-                                    <div class="row g-3">
-                                        <div class="col-md-6">
+                                    <form id="contact-form" onsubmit="return validateForm()">
+                                        <div class="row g-3">
+                                          <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control" id="name"
-                                                    placeholder="Your Name">
-                                                <label for="name">Your Name</label>
+                                              <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                              <label for="name">Your Name</label>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
+                                          </div>
+                                          <div class="col-md-6">
                                             <div class="form-floating">
-                                                <input type="email" class="form-control" id="email"
-                                                    placeholder="Your Email">
-                                                <label for="email">Your Email</label>
+                                              <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                              <label for="email">Your Email</label>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
+                                          </div>
+                                          <div class="col-12">
                                             <div class="form-floating">
-                                                <input type="text" class="form-control" id="subject"
-                                                    placeholder="Subject">
-                                                <label for="subject">Subject</label>
+                                              <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                              <label for="subject">Subject</label>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
+                                          </div>
+                                          <div class="col-12">
                                             <div class="form-floating">
-                                                <textarea class="form-control" placeholder="Leave a message here"
-                                                    id="message" style="height: 150px"></textarea>
-                                                <label for="message">Message</label>
+                                              <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px" required></textarea>
+                                              <label for="message">Message</label>
                                             </div>
+                                          </div>
+                                          <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                          </div>
                                         </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Send
-                                                Message</button>
-                                        </div>
-                                    </div>
-                                </form>
+                                      </form>
                             </div>
                         </div>
                     </div>
@@ -183,7 +178,7 @@
                         <a class="btn btn-link text-white" href="about.html">About Us</a>
                         <a class="btn btn-link text-white" href="contact.html">Contact Us</a>
                         <a class="btn btn-link text-white" href="job-list.html">Jobs</a>
-                        <a class="btn btn-link text-white" href="blogs.html">Testimonial</a>
+                        <a class="btn btn-link text-white" href="testimonial.html">Testimonial</a>
                     </div>
                     <div class="col-lg-3 col-md-6 text-white">
                         <h5 class="text-white mb-4">Contact</h5>
@@ -241,6 +236,43 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/contact.js"></script>
+        <script>
+           
+  function validateForm() {
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const subjectInput = document.getElementById("subject");
+    const messageInput = document.getElementById("message");
+
+    if (nameInput.value.trim() === "") {
+      alert("Please enter your name.");
+      nameInput.focus();
+      return false;
+    }
+
+    if (emailInput.value.trim() === "") {
+      alert("Please enter your email.");
+      emailInput.focus();
+      return false;
+    }
+
+    if (subjectInput.value.trim() === "") {
+      alert("Please enter the subject.");
+      subjectInput.focus();
+      return false;
+    }
+
+    if (messageInput.value.trim() === "") {
+      alert("Please enter your message.");
+      messageInput.focus();
+      return false;
+    }
+
+    return true; // Submit the form if all fields are valid
+  }
+</script>
+        </script>
 </body>
 
 </html>
