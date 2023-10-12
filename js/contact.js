@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formData = new FormData(contactForm);
   
       try {
-        const response = await fetch("/send-email", {
+        const response = await fetch("https://job-search-git-pra-dev-prajapati-pradeep.vercel.app//send-email", {
           method: "POST",
           body: formData,
         });
