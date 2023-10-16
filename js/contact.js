@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   
       try {
-        const response = await fetch("http://localhost:3000/email/contact", {
+        const response = await fetch("http://localhost:3005/email/contact", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

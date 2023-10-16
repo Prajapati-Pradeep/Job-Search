@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`File size: ${emailData} bytes`);
 
     try {
-      const response = await fetch("http://localhost:3000/sendEmail/job-apply", {
+      const response = await fetch("http://localhost:3005/sendEmail/job-apply", {
         method: "POST",
         body: emailData, // Use FormData directly as the body
       });
