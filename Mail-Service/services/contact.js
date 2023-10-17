@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer');
 
 // Define an email sending route
 router.post('/contact', (req, res) => {
-  console.log(req.body)
   const transporter = nodemailer.createTransport({
     service: "gmail",
     port: 587,
