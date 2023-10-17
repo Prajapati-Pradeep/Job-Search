@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", function () {
     contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
