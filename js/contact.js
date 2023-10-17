@@ -1,6 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const contactForm = document.getElementById("contact-form");
+    const statusModal = document.getElementById("status-modal");
+    const statusText = document.getElementById("status-text");
   
     contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -18,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
         message,
         subject,
       }
+
+       // Show the "Sending" modal
+    statusText.textContent = "Sending...";
+    statusModal.style.display = "block";
   
       try {
         const response = await fetch("http://localhost:3005/email/contact", {
@@ -31,15 +37,19 @@ document.addEventListener("DOMContentLoaded", function () {
   
         if (response.ok) {
           // Successful submission, show a success message or redirect
-          alert("Message sent successfully");
+          statusText.textContent = "Sent successfully";
           contactForm.reset();
         } else {
           // Handle the error response, e.g., show an error message
-          alert("Message sending failed. Please try again later.");
+          statusText.textContent = "Message sending failed. Please try again later.";
         }
       } catch (error) {
         console.error("An error occurred:", error);
-        alert("An error occurred. Please try again later.");
+        statusText.textContent = "An error occurred. Please try again later.";
       }
+
+      setTimeout(() => {
+        statusModal.style.display = "none";
+      }, 3000); 
     });
   });
