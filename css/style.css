@@ -199,6 +199,136 @@ body {
     background-size: cover;
 }
 
+/* Top Companies */
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+    max-width: 1800px; /* Adjust the max-width as needed */
+    width: 100%;
+    position: relative;
+}
+
+.wrapper i {
+    top: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    transform: translateY(-50%);
+    transition: transform 0.1s linear;
+}
+
+.wrapper i:active {
+    transform: translateY(-50%) scale(0.85);
+}
+
+.wrapper i:first-child {
+    left: -22px;
+    z-index: 1;
+}
+
+.wrapper i:last-child {
+    right: -5px;
+    z-index: 1;
+}
+
+.wrapper .carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 4) - 12px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel.no-transition {
+    scroll-behavior: auto;
+}
+
+.carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .card {
+    scroll-snap-align: start;
+    height: 342px; /* Fix the card height */
+    list-style: none;
+    background: #fff;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+.carousel .card .img {
+    height: 200px; /* Adjust the image container size */
+    width: 200px; /* Adjust the image container size */
+}
+
+.card .img img {
+    max-width: 100%; /* Ensure the image fits within its container */
+    height: auto; /* Adjust the image height while maintaining aspect ratio */
+    object-fit: cover;
+    border-radius: 8px; /* Apply border-radius to the image */
+    border: 4px solid #fff;
+}
+
+.carousel .card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+.carousel .card span {
+    color: #6A6D78;
+    font-size: 1.31rem;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}
 
 
 /*** About ***/
@@ -263,7 +393,8 @@ body {
 .bg-light {
     background-color: var(--light) !important;
 }
-.form-control:focus{
+
+.form-control:focus {
     box-shadow: 0 0 0 0.25rem rgba(153, 182, 233, 0.376);
 }
 
@@ -357,11 +488,12 @@ body {
 
 
 /* Blog Page */
-.application image{
+.application image {
     width: 100%;
     object-fit: contain;
 }
-.application img{
+
+.application img {
     width: 100%;
     height: auto;
 }
@@ -377,17 +509,18 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 9999;
 }
+
 #status-modal .modal-content {
-      background-color: #8dc6f9e6;
-      color: var(--primary);
-      padding: 20px;
-  }
-  
-  #status-text {
+    background-color: #8dc6f9e6;
+    color: var(--primary);
+    padding: 20px;
+}
+
+#status-text {
     font-size: 18px;
     text-align: center;
     margin-bottom: 0;
-  }
+}
 
 /*** Footer ***/
 .footer .btn.btn-social {
@@ -456,4 +589,8 @@ body {
     margin-right: 0;
     padding-right: 0;
     border-right: none;
+}
+
+.footer .text-light {
+    text-align: justify;
 }
